@@ -1,0 +1,59 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffcccc; /* Light pink background */
+    }
+
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #options {
+      display: flex;
+      gap: 20px;
+    }
+
+    .option {
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: transform 0.3s ease-out;
+    }
+
+    #noOption {
+      background-color: #ff9999; /* Light red color */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="question">Will you take me as your date?</div>
+    <div id="options">
+      <div class="option" onclick="alert('Thank you for your cooperation! 🥰')">Yes</div>
+      <div id="noOption" class="option" onclick="moveNoOption()">No</div>
+    </div>
+  </div>
+
+  <script>
+    function moveNoOption() {
+      const noOption = document.getElementById('noOption');
+      const newX = Math.random() * (window.innerWidth - noOption.clientWidth);
+      const newY = Math.random() * (window.innerHeight - noOption.clientHeight);
+      
+      noOption.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
+  </script>
+</body>
+</html>
+```
